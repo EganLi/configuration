@@ -113,6 +113,30 @@ let NERDTreeWinPos="right"
 " ClangFormat
 nnoremap <F1> :ClangFormat<CR>
 
+" Highlight
+let g:cpp_concepts_highlight = 1
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+
+" LeaderF
+let g:Lf_ShortcutF = '<c-p>'
+let g:Lf_ShortcutB = '<m-n>'
+noremap <c-n> :LeaderfMru<CR>
+noremap <c-m> :LeaderfFunction!<CR>
+noremap <m-n> :LeaderfBuffer<CR>
+noremap <m-m> :LeaderfTag<CR>
+let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
+
+let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
+let g:Lf_WorkingDirectoryMode = 'Ac'
+let g:Lf_WindowHeight = 0.30
+let g:Lf_CacheDirectory = expand('~/.vim/cache')
+let g:Lf_ShowRelativePath = 0
+let g:Lf_HideHelp = 1
+let g:Lf_StlColorscheme = 'powerline'
+let g:Lf_PreviewResult = {'Function':0, 'BufTag':0}
+
 " AsyncRun
 let g:asyncrun_open=6
 let g:asyncrun_bell=1
@@ -125,7 +149,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'w0rp/ale'
-Plug 'Yggdroot/LeaderF'
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'skywind3000/asyncrun.vim'
 " Plug 'racer-rust/vim-racer'
 " "Plug 'rust-lang/rust.vim'
