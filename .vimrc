@@ -31,21 +31,21 @@ set noerrorbells
 set backspace=2
 set completeopt=longest,menu
 
-:inoremap ( ()<ESC>i
-:inoremap ) <c-r>=ClosePair(')')<CR>
-:inoremap { {}<ESC>i
-:inoremap } <c-r>=ClosePair('}')<CR>
-:inoremap [ []<ESC>i
-:inoremap ] <c-r>=ClosePair(']')<CR>
-:inoremap " ""<ESC>i
-:inoremap ' ''<ESC>i
-function! ClosePair(char)
-	if getline('.')[col('.') - 1] == a:char
-		return "\<Right>"
-	else
-		return a:char
-	endif
-endfunction
+":inoremap ( ()<ESC>i
+":inoremap ) <c-r>=ClosePair(')')<CR>
+":inoremap { {}<ESC>i
+":inoremap } <c-r>=ClosePair('}')<CR>
+":inoremap [ []<ESC>i
+":inoremap ] <c-r>=ClosePair(']')<CR>
+":inoremap " ""<ESC>i
+":inoremap ' ''<ESC>i
+"function! ClosePair(char)
+"	if getline('.')[col('.') - 1] == a:char
+"		return "\<Right>"
+"	else
+"		return a:char
+"	endif
+"endfunction
 
 " For Rust
 autocmd BufNewFile,BufRead *rs set filetype=rust
@@ -145,6 +145,31 @@ nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
 nnoremap <F7> :AsyncRun -cwd=<root> make <cr>
 nnoremap <F8> :AsyncRun -cwd=<root> -raw make run <cr>
 
+" rainbow parenthsis
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
 call plug#begin('~/.vim/plugged')
 Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
@@ -156,4 +181,6 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'rhysd/vim-clang-format'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'jiangmiao/auto-pairs'
+Plug 'kien/rainbow_parentheses.vim'
 call plug#end()
