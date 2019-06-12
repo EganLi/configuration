@@ -81,7 +81,7 @@ hi! SpellRare gui=undercurl guisp=magenta
 
 " YCM for Rust
 " let g:ycm_rust_src_path='/root/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
-let g:ycm_rust_src_path='/root/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
+" let g:ycm_rust_src_path='/root/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf=0
 let g:ycm_add_preview_to_completeopt=0
@@ -98,11 +98,12 @@ set completeopt=menu,menuone
 nnoremap <c-z> <NOP>
 let g:ycm_semantic_triggers={'c,cpp,rust,python': ['re!\w{2}'],}
 " let g:ycm_filetype_whitelist={ "c":1, "cpp":1, "h":1, "hpp":1, "rs":1 }
+let g:ycm_filetype_blacklist={ 'txt':1, 'markdown':1, 'infolog':1, 'text':1 }
 
 " NERDTree
-autocmd VimEnter * NERDTree
-wincmd w
-autocmd VimEnter * wincmd w
+"autocmd VimEnter * NERDTree
+"wincmd w
+"autocmd VimEnter * wincmd w
 let NERDTreeShowHidden=1
 let NERDTreeMinimalUI=1
 let NERDTreeAutoDeleteBuffer=1
