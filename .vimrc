@@ -113,6 +113,7 @@ let NERDTreeWinPos="right"
 
 " ClangFormat
 nnoremap <F1> :ClangFormat<CR>
+let g:clang_format#code_style="WebKit"
 
 " Highlight
 let g:cpp_concepts_highlight = 1
