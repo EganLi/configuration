@@ -113,7 +113,52 @@ let NERDTreeWinPos="right"
 
 " ClangFormat
 nnoremap <F1> :ClangFormat<CR>
-let g:clang_format#code_style="WebKit"
+let g:clang_format#detect_style_file=1
+" let g:clang_format#code_style="WebKit"
+"let g:clang_format#style_options = {
+"	\ "AccessModifierOffset" : -4,
+"	\ "ConstructorInitializerIndentWidth" : 4,
+"	\ "AlignEscapedNewlinesLeft" : "false",
+"	\ "AlignTrailingComments" : "false",
+"	\ "AllowAllParametersOfDeclarationOnNextLine" : "false",
+"	\ "AllowShortIfStatementsOnASingleLine" : "false",
+"	\ "AllowShortLoopsOnASingleLine" : "false",
+"	\ "AlwaysBreakTemplateDeclarations" : "true",
+"	\ "AlwaysBreakBeforeMultilineStrings" : "false",
+"	\ "BreakBeforeBinaryOperators" : "true",
+"	\ "BreakBeforeTernaryOperators" : "true",
+"	\ "BreakConstructorInitializersBeforeComma" : "true",
+"	\ "BinPackParameters" : "true",
+"	\ "ColumnLimit" : 0,
+"	\ "ConstructorInitializerAllOnOneLineOrOnePerLine" : "false",
+"	\ "DerivePointerBinding" : "false",
+"	\ "ExperimentalAutoDetectBinPacking" : "false",
+"	\ "IndentCaseLabels" : "false",
+"	\ "MaxEmptyLinesToKeep" : 1,
+"	\ "NamespaceIndentation" : "Inner",
+"	\ "ObjCSpaceBeforeProtocolList" : "true",
+"	\ "PenaltyBreakBeforeFirstCallParameter" : 19,
+"	\ "PenaltyBreakComment" : 60,
+"	\ "PenaltyBreakString" : 1000,
+"	\ "PenaltyBreakFirstLessLess" : 120,
+"	\ "PenaltyExcessCharacter" : 1000000,
+"	\ "PenaltyReturnTypeOnItsOwnLine" : 60,
+"	\ "PointerBindsToType" : "true",
+"	\ "SpacesBeforeTrailingComments" : 1,
+"	\ "Cpp11BracedListStyle" : "false",
+"	\ "Standard" : "Cpp11",
+"	\ "IndentWidth" : 4,
+"	\ "TabWidth" : 8,
+"	\ "UseTab" : "Never",
+"	\ "BreakBeforeBraces" : "GNU",
+"	\ "IndentFunctionDeclarationAfterType" : "false",
+"	\ "SpacesInParentheses" : "false",
+"	\ "SpacesInAngles" : "false",
+"	\ "SpaceInEmptyParentheses" : "false",
+"	\ "SpacesInCStyleCastParentheses" : "false",
+"	\ "SpaceAfterControlStatementKeyword" : "true",
+"	\ "SpaceBeforeAssignmentOperators" : "true",
+"	\ "ContinuationIndentWidth" : 4}
 
 " Highlight
 let g:cpp_concepts_highlight = 1
