@@ -4,10 +4,13 @@ nmap <Leader>WQ :wqa<CR>
 nmap <Leader>Q :qa!<CR>
 nnoremap <Leader>lw <C-W>l
 nnoremap <Leader>hw <C-W>h
+nnoremap <Leader>jw <C-W>j
+nnoremap <Leader>kw <C-W>k
 
 set nu
 set nocompatible
-filetype off
+filetype plugin on
+filetype indent on
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -17,10 +20,10 @@ syntax on
 set showmode
 set showcmd
 set encoding=utf-8
-filetype indent on
 set autoindent
 set cursorline
-hi CursorLine cterm=bold guibg=NONE guifg=NONE
+set cursorcolumn
+" hi CursorLine cterm=bold guibg=NONE guifg=NONE
 set linebreak
 set laststatus=2
 set ruler
@@ -30,6 +33,12 @@ set ignorecase
 set noerrorbells
 set backspace=2
 set completeopt=longest,menu
+" set background=gray
+colorscheme molokai
+
+" molokai
+let g:molokai_original = 0
+let g:rehash256 = 1
 
 ":inoremap ( ()<ESC>i
 ":inoremap ) <c-r>=ClosePair(')')<CR>
@@ -82,6 +91,7 @@ hi! SpellRare gui=undercurl guisp=magenta
 " YCM for Rust
 " let g:ycm_rust_src_path='/root/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 " let g:ycm_rust_src_path='/root/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
+let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>']
 let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf=0
 let g:ycm_add_preview_to_completeopt=0
@@ -109,7 +119,9 @@ let NERDTreeMinimalUI=1
 let NERDTreeAutoDeleteBuffer=1
 nmap <Leader>fl :NERDTreeToggle<CR>
 nmap <silent> <F2> :NERDTreeFind<CR>
-let NERDTreeWinPos="right"
+let NERDTreeWinPos="left"
+let g:NERDTreeDirArrowExpandable = '>'
+let g:NERDTreeDirArrowCollapsible = '-'
 
 " ClangFormat
 nnoremap <F1> :ClangFormat<CR>
@@ -189,8 +201,12 @@ let g:asyncrun_open=6
 let g:asyncrun_bell=1
 let g:asyncrun_rootmarks=['.svn', '.git', '.root']
 nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
+nnoremap <F6> :AsyncRun -cwd=<root> cargo build <cr>
 nnoremap <F7> :AsyncRun -cwd=<root> make <cr>
 nnoremap <F8> :AsyncRun -cwd=<root> -raw make run <cr>
+
+" rust.vim
+let g:rustfmt_autosave = 1
 
 " rainbow parenthsis
 let g:rbpt_colorpairs = [
@@ -225,9 +241,11 @@ Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'skywind3000/asyncrun.vim'
 " Plug 'racer-rust/vim-racer'
 " "Plug 'rust-lang/rust.vim'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
+" Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'rhysd/vim-clang-format'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kien/rainbow_parentheses.vim'
+Plug 'tomasr/molokai'
+Plug 'rust-lang/rust.vim'
 call plug#end()
